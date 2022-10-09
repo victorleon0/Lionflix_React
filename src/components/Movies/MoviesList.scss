@@ -1,0 +1,9 @@
+.moviesList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px;
+    gap: 20px;
+    overflow-x: auto;
+
+}

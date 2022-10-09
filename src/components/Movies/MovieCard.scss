@@ -1,0 +1,28 @@
+.movieCard {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 350px;
+    background-color: #303030;
+    
+    .img {
+        object-fit: cover;
+        border-radius: 10%;
+    }
+    .textCard {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding-left: 10px;
+    
+        h3 {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        p {
+            margin-top: 0;
+            font-size: 12px;
+        }
+    }
+
+}

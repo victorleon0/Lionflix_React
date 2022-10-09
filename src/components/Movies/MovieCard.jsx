@@ -1,14 +1,16 @@
-const MovieCard = ({movie}) => {
-    return (
-      <li className="card" key={movie.title}>
-        <img src={movie.image} alt={movie.title} />
-        <p className="card-title">{movie.title}</p>
-        <div className="card-subtitle">
-          {movie.type[0]} {movie.type[1] ? `, ${movie.type[1]}` : ""}
-        </div>
-      </li>
-    );
-  };
-  
-  export default MovieCard;
-  
+import "./MovieCard.scss";
+
+
+const MovieCard = ({ imageURL, title, date }) => {
+  return (
+    <div className="movieCard">
+      <img className="imageCard" src={imageURL} alt={title}></img>
+      <div className="textCard">
+        <h3 className="title">{title}</h3>
+        <p className="date">{date}</p>
+      </div>
+    </div>
+  );
+};
+
+export default MovieCard;
