@@ -1,10 +1,10 @@
 const MovieCard = ({movie}) => {
     return (
       <li className="card" key={movie.title}>
-        <img src={movie.image} alt={pokemon.name} />
-        <p className="card-title">{pokemon.name}</p>
+        <img src={movie.image} alt={movie.title} />
+        <p className="card-title">{movie.title}</p>
         <div className="card-subtitle">
-          {pokemon.type[0]} {pokemon.type[1] ? `, ${pokemon.type[1]}` : ""}
+          {movie.type[0]} {movie.type[1] ? `, ${movie.type[1]}` : ""}
         </div>
       </li>
     );

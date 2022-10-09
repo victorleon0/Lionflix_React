@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    height: 9vh;
+    background-color: #303030;
+    text-decoration: none;
+    
+  
+    .divlogo {
+      .logo {
+        width: 150px;
+        padding-top: 20px;
+        padding-left: 40px;
+        text-decoration: none;
+
+      }
+    }
+    .divnavbar {
+      display: flex;
+      flex-direction: row;
+      flex:3;
+      .navButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 20px;
+        padding-left: 80px;
+        background-color: transparent;
+        border: 0px;
+        font-size: 16px;
+        font-weight: bold;
+        color: antiquewhite;
+        
+        
+
+      }
+    }
+  
+    .divicons {
+      display: flex;
+      flex-direction: row;
+      img {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 30px;
+          height: 30px;
+          padding-top: 20px;
+          padding-right: 30px;
+          
+  
+      }
+      :hover {
+      transform: scale(1.1);
+    }
+  }
+  }
+  

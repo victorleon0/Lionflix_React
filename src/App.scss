@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    text-decoration: none;
   }
   
   .App-logo {
@@ -36,28 +37,9 @@
       transform: rotate(360deg);
     }
   }
+ 
   
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 100px;
-  }
-  .searchbar {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 10px;
-  }
   
-  .portada {
-    margin-top: -500px;
-    width: 100vw;
-    height: 200vh;
-    object-fit: cover;
-    z-index: -100;
-  }
   .backroundImage {
     position: absolute;
     margin: 0 auto;
@@ -65,11 +47,9 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    opacity: 60%;
+    opacity: 50%;
     z-index: -1;
     object-fit: fill;
   }
-  .navigator {
-    background-color: transparent;
-  }
+  
   

@@ -1,24 +1,28 @@
 import "./App.scss";
-//Import Navigation from "./components/Navigation/Navigation.jsx";
-//import Footer from "./components/Footer/Footer.jsx";
-//import Searchbar from "./components/Searchbar/Searchbar";
+
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
       <div className="navigator">
-        
+        <Navbar/>
+      </div>
+      <div className="banner">
+      
+
+
       </div>
       <div className="hero-container">
-        <h1 className="title">Todas las películas y series que desees, y mucho más.</h1>
+        <h1 className="title">Todas las películas y series que deseas el cine que necesitas en la ciudad que elijas</h1>
         <h3 className="subtitle">Utiliza el buscador y descubre lo que podemos ofrecerte</h3>
       </div>
       <img
-        className="backgroundImage"
-        src="../assets/BG_movies.jpeg"
-        alt="Background"
+        className="backroundImage"
+        src="https://genotipia.com/wp-content/uploads/2020/04/Netflix-Background-prueba-1.jpg"
+        alt="Backround"
       ></img>
-      <div className="searchbar">
+      <div className="buscadorHome">
       </div>
       <div className="footer">
       </div>
@@ -27,4 +31,3 @@ function App() {
 }
 
 export default App;
-
