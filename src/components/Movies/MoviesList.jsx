@@ -1,56 +1,27 @@
-import React from 'react';
+import React, { useState } from "react";
+import { useEffect } from "react";
+import tmdbApi from "../../api/tmdb.api";
 
-import MovieCard from './MovieCard';
+import MovieCard from "./MovieCard";
 import "./MoviesList.scss";
 
-const Movies = [
-  {
-    title: "The Boys",
-    date: "2JUL2020",
-    imageURL: "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-  },
-  {
-    title: "The Boys",
-    date: "2JUL2020",
-    imageURL: "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-  },
-  {
-    title: "The Boys",
-    date: "2JUL2020",
-    imageURL: "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-  },
-  {
-    title: "The Boys",
-    date: "2JUL2020",
-    imageURL: "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-  },
-  {
-    title: "The Boys",
-    date: "2JUL2020",
-    imageURL: "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-  },
-  {
-    title: "The Boys",
-    date: "2JUL2020",
-    imageURL: "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-  },
-  {
-    title: "The Boys",
-    date: "2JUL2020",
-    imageURL: "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-  },
-
-]
-
-
 const MoviesList = () => {
-  return (
-    <div className='moviesList'>
-    {Movies.map ((movie, index)=> {
-      return <MovieCard key={index} {...movie}/>
-    })}
-    </div>
-  )
-}
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const { data } = await tmdbApi.get("trending/all/day");
+      setMovies(data.results);
+    };
+    fetchMovies();
+  }, []);
 
-export default MoviesList
+  return (
+    <div className="moviesList">
+      {movies.map((movie, index) => {
+        return <MovieCard key={index} {...movie} />;
+      })}
+    </div>
+  );
+};
+
+export default MoviesList;
