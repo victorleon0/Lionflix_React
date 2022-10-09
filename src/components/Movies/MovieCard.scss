@@ -1,13 +1,15 @@
 .movieCard {
     display: flex;
     flex-direction: column;
-    width: 200px;
-    height: 350px;
+    width: 150px;
+    height: 270px;
     background-color: #303030;
     
     .img {
-        object-fit: cover;
-        border-radius: 10%;
+        width: 150px;
+        height: 225px;
+        border-radius: 6px;
+        
     }
     .textCard {
         display: flex;
