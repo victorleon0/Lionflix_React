@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+
+
+
 import tmdbApi from "../../api/tmdb.api";
 
 import MovieCard from "./MovieCard";
@@ -14,6 +17,7 @@ const MoviesList = () => {
     };
     fetchMovies();
   }, []);
+  
 
   return (
     <div className="moviesList">
