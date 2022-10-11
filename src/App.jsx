@@ -15,7 +15,6 @@ function App() {
           <Banner />
         </div>
         <div className="filter">
-          
         </div>
         <div className="movieContainer">
           <MoviesList/>
