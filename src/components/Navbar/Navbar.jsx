@@ -2,13 +2,16 @@ import "./Navbar.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 
+import bannerLogo from './../../assets/LIONFLIX.png';
+
+
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="divlogo">
         <Link to="/">
           <img
-            src="../../assets/LIONFLIX.PNG"
+            src={bannerLogo}
             className="logo"
             alt="logo"
           ></img>
