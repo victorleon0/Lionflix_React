@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useEffect } from "react";
 
 
@@ -9,6 +9,7 @@ import MovieCard from "./MovieCard";
 import "./MoviesList.scss";
 
 const MoviesList = () => {
+  
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const fetchMovies = async () => {
@@ -17,12 +18,11 @@ const MoviesList = () => {
     };
     fetchMovies();
   }, []);
-  
 
   return (
     <div className="moviesList">
       {movies.map((movie, index) => {
-        return <MovieCard key={index} {...movie} />;
+        return <MovieCard key={index} {...movie} />
       })}
     </div>
   );

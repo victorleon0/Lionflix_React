@@ -12,7 +12,6 @@ const MovieCard = ({ poster_path, title, release_date, id }) => {
   const navigate = useNavigate ();
 
   const navigateToMovie = (movie) => {
-    // navigate es equivalente a <Link></Link>
     navigate(`/movies/${id}`, {state: movie});
   };
 
