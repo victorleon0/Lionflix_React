@@ -3,6 +3,8 @@ import Banner from "./components/Banner/Banner";
 import MoviesList from "./components/Movies/MoviesList";
 
 import Navbar from "./components/Navbar/Navbar";
+import SocialMedia from "./components/SocialMedia/SocialMedia";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -29,7 +31,10 @@ function App() {
           <MoviesList/>
         </div>
         
-        <div className="footer"></div>
+        <div className="footer">
+          <SocialMedia/>
+          <Footer/>
+        </div>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const MoviesList = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const fetchMovies = async () => {
-      const { data } = await tmdbApi.get("trending/all/day");
+      const { data } = await tmdbApi.get("movie/popular");
       setMovies(data.results);
     };
     fetchMovies();

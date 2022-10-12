@@ -30,6 +30,9 @@ const Navbar = () => {
         <Link to="/upcoming">
           <button className="navButton">Upcoming</button>
         </Link>
+        <Link to="/contact">
+          <button className="navButton">Contact</button>
+        </Link>
       </div>
       <div className="divicons">
         <Link to="/favorites">
