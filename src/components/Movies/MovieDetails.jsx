@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./MovieDetails.scss";
 import { Link } from "react-router-dom";
+import SimilarMovies from "../MoreMovies/SimilarMovies";
 
 const MovieDetails = ({ poster_path }) => {
   const [movie, setMovie] = useState();
@@ -34,15 +35,15 @@ const MovieDetails = ({ poster_path }) => {
           <>
             <div id="results">
               <div id="movie">
-                <div class="movie-details-container">
-                  <div class="column column-md">
+                <div className="movie-details-container">
+                  <div className="column column-md">
                     <img
                       src={getImagePath(movie.poster_path)}
                       alt={movie.title}
                       id="poster"
                     ></img>
                   </div>
-                  <div class="column column-md">
+                  <div className="column column-md">
                     <h1 id="title">
                       {movie.title}
                       <span id="date"> {movie.release_date}</span>
@@ -63,12 +64,12 @@ const MovieDetails = ({ poster_path }) => {
                             ></img>
                           </Link>
                         </div>
-                    <div class="row">
-                      <span class="badge">
+                    <div className="row">
+                      <span className="badge">
                         <span id="status">{movie.status}</span>
                       </span>
                     </div>
-                    <div class="row">
+                    <div className="row">
                       {movie.runtime} minutes | {movie.genres.name} |{" "}
                       {movie.release_date}
                     </div>
@@ -76,25 +77,27 @@ const MovieDetails = ({ poster_path }) => {
                     <div id="overview">
                       <p id="synopsis">{movie.overview}</p>
                     </div>
-                    <div class="row">
-                      <div class="column column-md">
-                        <div class="ratings">
+                    <div className="row">
+                      <div className="column column-md">
+                        <div className="ratings">
                           <h2>Rating</h2>
                           <span id="rating">{movie.vote_average}/10</span>
                         </div>
                       </div>
-                      <div class="column column-md">
+                      <div className="column column-md">
                         <h2>Runtime</h2>
                         <div>
                           <div id="runtime">{movie.runtime} minutes</div>
-                        </div>
-                        
+                        </div>                       
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="similarMovies">
+                        <h1>Similar Movies</h1>
+                        <SimilarMovies/></div>
           </>
         )}
       </div>

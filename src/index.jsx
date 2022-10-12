@@ -9,6 +9,7 @@ import SearchPage from "./components/Pages/SearchPage";
 import MoviesPage from "./components/Pages/MoviesPage";
 import TvShowsPage from "./components/Pages/TvShowsPage";
 import TvShowsDetails from "./components/Movies/TvShowsDetails";
+import UpcomingMoviesPage from "./components/Pages/UpcomingMoviesPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -22,6 +23,7 @@ root.render(
         <Route path="/search" element={<SearchPage />} />
         <Route path="/films" element={<MoviesPage />} />
         <Route path="/tvshows" element={<TvShowsPage />} />
+        <Route path="/upcoming" element={<UpcomingMoviesPage />} />
       </Routes>
     </React.StrictMode>
   </Router>

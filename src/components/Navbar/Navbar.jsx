@@ -27,6 +27,9 @@ const Navbar = () => {
         <Link to="/tvshows">
           <button className="navButton">TV Shows</button>
         </Link>
+        <Link to="/upcoming">
+          <button className="navButton">Upcoming</button>
+        </Link>
       </div>
       <div className="divicons">
         <Link to="/favorites">

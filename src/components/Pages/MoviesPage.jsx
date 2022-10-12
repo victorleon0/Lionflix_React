@@ -32,7 +32,6 @@ const MoviesPage = () => {
         return <MovieCard key={index} {...movie} />
       })}
     </div>
-    <h2 className="titleMovie">We also recommend you...</h2>
 
       </div>
     </div>
