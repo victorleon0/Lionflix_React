@@ -25,3 +25,17 @@
 
 }
 
+.profile-social-links li a {
+    display: block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 100%;
+    -webkit-transition: box-shadow 0.2s;
+    -moz-transition: box-shadow 0.2s;
+    -o-transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s;
+  }
+

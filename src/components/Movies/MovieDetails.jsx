@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+
+
 import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./MovieDetails.scss";
@@ -20,6 +22,8 @@ const MovieDetails = ({ poster_path }) => {
   const getImagePath = (poster_path) => {
     return `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
   };
+
+  
 
   useEffect(() => {
     getMovie();
@@ -56,13 +60,6 @@ const MovieDetails = ({ poster_path }) => {
                               alt="favorites"
                             ></img>
                           </Link>
-                          <Link to="/saved">
-                            <img
-                              src="https://cdn141.picsart.com/328471124051211.png"
-                              className="save"
-                              alt="saved"
-                            ></img>
-                          </Link>
                         </div>
                     <div className="row">
                       <span className="badge">
@@ -70,7 +67,7 @@ const MovieDetails = ({ poster_path }) => {
                       </span>
                     </div>
                     <div className="row">
-                      {movie.runtime} minutes | {movie.genres.name} |{" "}
+                      {movie.runtime} minutes |{" "}
                       {movie.release_date}
                     </div>
                     <h3 id="tagline">{movie.tagline}</h3>

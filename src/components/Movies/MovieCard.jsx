@@ -7,6 +7,8 @@ const getImagePath = (imagepath)=> {
 }
 
 
+
+
 const MovieCard = ({ poster_path, title, release_date, id }) => {
 
   const navigate = useNavigate ();

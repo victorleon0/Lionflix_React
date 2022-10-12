@@ -1,8 +1,4 @@
 import React from 'react'
-import { TiSocialFacebookCircular } from 'react-icons/ti/index';
-import { TiSocialGithubCircular } from 'react-icons/ti/index';
-import { TiSocialInstagramCircular } from 'react-icons/ti/index';
-import { TiSocialLinkedinCircular } from 'react-icons/ti/index';
 
 
 
@@ -20,29 +16,25 @@ const SocialMedia = () => {
 
   return (
     <div className="socialMenu">
-          <div className="socialitem">
-          <a href="https://github.com/victorleon0">
-            <TiSocialGithubCircular />
-          </a>
-          </div>
-
-          <div className="socialitem">
-          <a href="https://www.linkedin.com/in/victorleon0/">
-            <TiSocialLinkedinCircular url={socialMediaLinks.linkedin} />
+          <ul className="profile-social-links">
+          <li>
+            <a href="mailto:victor.leon.huerta@gmail.com">
+              <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="logo" />
             </a>
-          </div>
+          </li>
 
-          <div className="socialitem">
-          <a href="https://www.instagram.com/VictorLeon_">
-            <TiSocialInstagramCircular url={socialMediaLinks.instagram} />
-          </a>
-          </div>
+          <li>
+            <a href="https://github.com/victorleon0">
+              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="logo" />
+            </a>
+          </li>
 
-          <div className="socialitem">
-          <a href="https://facebook.com/victorleon0">
-            <TiSocialFacebookCircular url={socialMediaLinks.facebook} />
-          </a>
-          </div>
+          <li>
+            <a href="https://www.linkedin.com/in/victorleon0/">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="logo" />
+            </a>
+          </li>
+        </ul>
       </div>
   )
 }
