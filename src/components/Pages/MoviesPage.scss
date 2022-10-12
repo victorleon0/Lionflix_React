@@ -1,0 +1,10 @@
+.movieDetails {
+    .titleMovie {
+        text-align: center;
+    }
+    .moviesList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

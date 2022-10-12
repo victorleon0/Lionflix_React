@@ -17,6 +17,15 @@ function App() {
         <div className="filter">
         </div>
         <div className="movieContainer">
+          <h1 className="categorie">Trending Now</h1>
+          <MoviesList/>
+          <h1 className="categorie">Trending Now</h1>
+          <MoviesList/>
+          <h1 className="categorie">Trending Now</h1>
+          <MoviesList/>
+          <h1 className="categorie">Trending Now</h1>
+          <MoviesList/>
+          <h1 className="categorie">Trending Now</h1>
           <MoviesList/>
         </div>
         
