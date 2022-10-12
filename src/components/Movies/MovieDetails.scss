@@ -25,12 +25,15 @@
   }
   .movie-details-container{
     overflow:auto;
+    margin-right: 50px;
   }
   
   .row {
       overflow: auto;
       padding-top: 1em;
       padding-bottom: 1em;
+      color: white;
+      font-size: 12px;
   }
   .column {
     float: left;
@@ -42,13 +45,15 @@
     width: 100%;
   }
   .badge {
-    background-color: #4b017b;
+    background-color: #7b0105;
     padding:.3rem 1rem;
     border-radius: 4px;
+    color: white;
   }
   #date {
     font-size:1.5rem;
     font-weight: 200;
+    color: white ;
   }
   #poster {
     padding-left: 100px;
@@ -62,12 +67,12 @@
     color: white;
   }
   
-  #related {
-    color: white;
-    padding: 0;
-  }
-  
-  #related li {
-    list-style: none;
-    cursor: pointer;
+
+
+  .divicons {
+    display: flex;
+    img {
+      width: 25px;
+      height: 25px;
+    }
   }
