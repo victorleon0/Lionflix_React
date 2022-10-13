@@ -1,0 +1,57 @@
+.tvDetails {
+    .titleMovie {
+        text-align: center;
+    }
+    .moviesList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+.backgroundImageApp {
+    background-image: url("./../../assets/BG_movies.jpeg") ;
+    min-height: 100%;
+    min-width: 120%;
+    position: fixed;
+    top: 0;
+    left: -100px;
+    opacity: 50%;
+    z-index: -10;
+  }
+
+.form {
+    position: relative;
+}
+
+
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    input {
+      width: 430px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid grey;
+      padding-left: 5px;
+      padding-right: 5px;
+      background-color: whitesmoke;
+      font-weight: bold;
+      margin: 0 auto;
+      
+    }
+    button {
+      background-color: transparent;
+      border: 1px solid grey;
+      background: linear-gradient(to bottom right, #f52525, #f96a6a);
+      border-radius: 10px;
+      height: 30px;
+      width: 100px;
+      cursor: pointer;
+      margin: 0 auto;
+
+    }
+}

@@ -12,7 +12,7 @@ import reduxThunk from "redux-thunk";
 import reducers from "./reducers/favorites.reducers";
 
 import MovieDetails from "./components/Movies/MovieDetails";
-import SearchPage2 from "./components/Pages/SearchPage2";
+import SearchPage from "./components/Pages/SearchPage";
 import MoviesPage from "./components/Pages/MoviesPage";
 import TvShowsPage from "./components/Pages/TvShowsPage";
 import TvShowsDetails from "./components/Movies/TvShowsDetails";
@@ -32,7 +32,7 @@ root.render(
         <Route exact path="/" element={<App />} />
         <Route path="/movies/:id" element={<MovieDetails />} />
         <Route path="/tv/:id" element={<TvShowsDetails />} />
-        <Route path="/search" element={<SearchPage2 />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/films" element={<MoviesPage />} />
         <Route path="/tvshows" element={<TvShowsPage />} />
         <Route path="/upcoming" element={<UpcomingMoviesPage />} />

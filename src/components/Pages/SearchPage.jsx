@@ -1,79 +1,182 @@
-import React from "react";
-import { useState, useEffect } from "react";
-//import SearchBar from "../Search/SearchBar";
-import Navbar from "../Navbar/Navbar";
-import MovieCard from "../Movies/MovieCard";
-import SearchMovieInput from "../Search/SearchBar"
-
+import { useEffect, useState } from "react";
+import "./SearchPage.scss";
 import axios from "axios";
-
-import tmdbApi from "../../api/tmdb.api";
+import Navbar from "../Navbar/Navbar";
 import MoviesList from "../Movies/MoviesList";
-import SearchBar from "../Search/SearchBar";
-
-
-
-// import PageSwitch from "../components/PageSwitch";
+import { Link } from "react-router-dom";
 
 const SearchPage = () => {
+  const MOVIE_API = "https://api.themoviedb.org/3/";
+  const SEARCH_API = MOVIE_API + "search/movie";
+  const DISCOVER_API = MOVIE_API + "discover/movie";
+  const API_KEY = "8f781d70654b5a6f2fa69770d1d115a3";
+  const BACKDROP_PATH = "https://image.tmdb.org/t/p/original";
 
-  const [movies, setMovies] = useState([]); // ALL_Movies
-  const [moviesToShow, setMoviesToShow] = useState([]);
-
-  const getMoviesToShow = () => {
-    const input = document.querySelector('#input-search');
-
-    if(!moviesToShow.length && input.value) {
-      return [];
-    }
-
-    return moviesToShow;
-  }
+  const [movies, setMovies] = useState([]);
+  const [searchKey, setSearchKey] = useState("");
+  const [movie, setMovie] = useState({ title: "Loading Movies" });
 
   useEffect(() => {
-    const fetchMovies = async (input) => {
-      const { data } = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=8f781d70654b5a6f2fa69770d1d115a3&query=${input}`);
-      setMovies(data.results);
-    };
     fetchMovies();
   }, []);
 
-  const filter = (results) => {
-    setMoviesToShow(results);
-  }
+  const fetchMovies = async (event) => {
+    if (event) {
+      event.preventDefault();
+    }
 
-  
+    const { data } = await axios.get(
+      `${searchKey ? SEARCH_API : DISCOVER_API}`,
+      {
+        params: {
+          api_key: API_KEY,
+          query: searchKey,
+        },
+      }
+    );
 
+    setMovies(data.results);
+    setMovie(data.results[0]);
+
+    if (data.results.length) {
+      await fetchMovie(data.results[0].id);
+    }
+  };
+
+  const fetchMovie = async (id) => {
+    const { data } = await axios.get(`${MOVIE_API}movie/${id}`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+
+    setMovie(data);
+  };
+
+  const selectMovie = (movie) => {
+    fetchMovie(movie.id);
+    setMovie(movie);
+    window.scrollTo(0, 0);
+  };
+
+  const getImagePath = (poster_path) => {
+    return `https://www.themoviedb.org/t/p/original${poster_path}`;
+  };
+
+  const getBackdropPath = (backdrop_path) => {
+    return `https://www.themoviedb.org/t/p/original${backdrop_path}`;
+  };
+
+  const renderMovies = () =>
+    movies.map((movie) => (
+      <MoviesList selectMovie={selectMovie} key={movie.id} movie={movie} />
+    ));
 
   return (
-    <div className="searchpage"><div className="navbar">
-        <Navbar/>
+    <div className="SearchPage">
+      <div className="navbar">
+        <Navbar />
       </div>
-      <div id="input-search" className="searchbar">
-      <SearchMovieInput movies={movies} filter={filter} />
+      <div className="search">
+        <form className="form" onSubmit={fetchMovies}>
+          <input
+            className="search"
+            type="text"
+            id="search"
+            placeholder="Write your movie and press enter..."
+            onInput={(event) => setSearchKey(event.target.value)}
+          />
+        </form>
       </div>
-      <div className="container">
-      
-      <h1>Pokedex</h1>
-      <ol id="pokedex">
-      {movies.map((movie, index) => {
-        return <MovieCard movies={moviesToShow.length ? getMoviesToShow() : movies}  />
-      })}
-      </ol>
-      
-    </div>
+      {movies.length ? (
+        <main background-color="#303030">
+          {movie ? (
+            <div className="poster">
+              <div className="center-max-size">
+                <div className="details">
+                  {movie && (
+                    <>
+                      <div id="results">
+                        <div id="movie">
+                          <div className="movie-details-container">
+                            <div className="column column-md">
+                              <img
+                                src={getImagePath(movie.poster_path)}
+                                alt={movie.title}
+                                id="poster"
+                              ></img>
+                            </div>
+                            <div className="column column-md">
+                              <h1 id="title">
+                                {movie.title}
+                                <span id="date"> {movie.release_date}</span>
+                              </h1>
+                              <div className="divicons">
+                                <Link to="/favorites">
+                                  <img
+                                    src="https://images.emojiterra.com/google/android-oreo/512px/2764.png"
+                                    className="heart"
+                                    alt="favorites"
+                                  ></img>
+                                </Link>
+                              </div>
+                              <div className="row">
+                                <span className="badge">
+                                  <span id="status">{movie.status}</span>
+                                </span>
+                              </div>
+                              <div className="row">
+                                {movie.runtime} minutes | {movie.release_date}
+                              </div>
+                              <h3 id="tagline">{movie.tagline}</h3>
+                              <div id="overview">
+                                <p id="synopsis">{movie.overview}</p>
+                              </div>
+                              <div className="row">
+                                <div className="column column-md">
+                                  <div className="ratings">
+                                    <h2>Rating</h2>
+                                    <span id="rating">
+                                      {movie.vote_average}/10
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="column column-md">
+                                  <h2>Runtime</h2>
+                                  <div>
+                                    <div id="runtime">
+                                      {movie.runtime} minutes
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="similarMovies">
+                        <h1>Similar Movies</h1>
+                        <MoviesList />
+                      </div>
 
-      </div>
-  
-    
-      
+                      <img
+                        className="backgroundImageOriginal"
+                        src={getBackdropPath(movie.backdrop_path)}
+                        alt={movie.title}
+                        id="poster"
+                      ></img>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          ) : <div className="null"></div>}
+        </main>
+      ) : (
+        "Sorry, no movies found"
+      )}
+    </div>
   );
 };
 
 export default SearchPage;
-
-
-
-
-
-

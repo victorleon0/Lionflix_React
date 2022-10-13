@@ -1,26 +1,50 @@
-const FilterByInput = ({movies, filter}) => {
+import React, { useState, useRef } from "react";
+import FontAwesome from "react-fontawesome";
+import PropTypes from "prop-types";
 
-    const filterByNameOrId = (event) => {
-      const inputValue = event.target.value.toLowerCase();
-      
-      const filtered = movies.filter((movie) => {
-        const matchName = movie.title.toLowerCase().includes(inputValue);
-        const matchId = movie.id === Number(inputValue);
-    
-        return matchName || matchId;
-      });
-  
-      filter(filtered);
-    };
-  
-    return (
-      <div className="input-container">
-        <input id="input-search" type="text" onChange={filterByNameOrId} />
-      </div>
-    );
+import {
+  StyledSearchBar,
+  StyledSearchBarContent,
+} from "../styles/StyledSearchBar";
+import RatingsFilter from "./RatingsFilter";
+
+const SearchBar = ({ callback }) => {
+  const [state, setState] = useState("");
+  const timeOut = useRef(null);
+
+  const doSearch = (event) => {
+    const { value } = event.target;
+    clearTimeout(timeOut.current);
+    setState(value);
+
+    timeOut.current = setTimeout(() => {
+      callback(value);
+    }, 1000);
   };
-  
-  export default FilterByInput;
+
+  return (
+    <>
+      <StyledSearchBar>
+        <StyledSearchBarContent>
+          <FontAwesome className="fa-search" name="search" size="2x" />
+          <input
+            type="text"
+            placeholder="search e.g. Captain Marvel"
+            onChange={doSearch}
+            value={state}
+          />
+        </StyledSearchBarContent>
+        {state === "" && <RatingsFilter />}
+      </StyledSearchBar>
+    </>
+  );
+};
+
+SearchBar.propTypes = {
+  callback: PropTypes.func,
+};
+
+export default SearchBar;
   
   
 
