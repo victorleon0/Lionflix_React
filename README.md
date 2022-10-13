@@ -4,7 +4,7 @@ Netflix Clone using the TMBD api to create a platform where you can search movie
 
 Technical test performed using React, Redux, Hooks, SASS and contexts
 
-![ScreenShot](https://raw.github.com/victorleon0/Lionflix_React/tree/main/src/assets/ScreenShot.png)
+![ScreenShot](https://github.com/victorleon0/Lionflix_React/blob/main/src/assets/ScreenShot.png)
 
 ### Instalación 🔧
 
