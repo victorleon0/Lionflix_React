@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import MoviesList from "../Movies/MoviesList";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const SearchPage = () => {
   const MOVIE_API = "https://api.themoviedb.org/3/";
@@ -175,6 +176,9 @@ const SearchPage = () => {
       ) : (
         "Sorry, no movies found"
       )}
+      <div className="footer">
+          <Footer/>
+        </div>
     </div>
   );
 };

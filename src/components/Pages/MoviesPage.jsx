@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import tmdbApi from "../../api/tmdb.api";
 
 import MovieCard from "./../Movies/MovieCard";
+import Footer from "../Footer/Footer";
 import "./../Movies/MoviesList.scss";
 import "./MoviesPage.scss";
 
@@ -38,6 +39,7 @@ const MoviesPage = () => {
           ></img>
         </div>
         <div className="footer">
+          <Footer/>
         </div>
       </div>
     </div>

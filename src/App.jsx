@@ -3,9 +3,10 @@ import Banner from "./components/Banner/Banner";
 import MoviesList from "./components/Movies/MoviesList";
 
 import Navbar from "./components/Navbar/Navbar";
-import SocialMedia from "./components/SocialMedia/SocialMedia";
 import Footer from "./components/Footer/Footer";
-import AddFavorites from "./components/Favorites/AddFavorites";
+import ActualMoviesList from "./components/MoreMovies/ActualMoviesList";
+import SpanishMoviesList from "./components/MoreMovies/SpanishMoviesList";
+import TopRatedList from "./components/MoreMovies/TopRatedList";
 
 function App() {
   return (
@@ -21,15 +22,14 @@ function App() {
         </div>
         <div className="movieContainer">
           <h1 className="categorie">Trending Now</h1>
-          <MoviesList FavouriteComponent={AddFavorites}/>
-          <h1 className="categorie">Trending Now</h1>
           <MoviesList/>
-          <h1 className="categorie">Trending Now</h1>
-          <MoviesList/>
-          <h1 className="categorie">Trending Now</h1>
-          <MoviesList/>
-          <h1 className="categorie">Trending Now</h1>
-          <MoviesList/>
+          <h1 className="categorie">Spanish Movies</h1>
+          <SpanishMoviesList/>
+          <h1 className="categorie">Top Rated</h1>
+          <TopRatedList/>
+          <h1 className="categorie">2022 Movies</h1>
+          <ActualMoviesList/>
+          
         </div>
         <div className="backgroundApp">
         <img
@@ -38,7 +38,6 @@ function App() {
                 alt="backgroundApp"
               ></img></div>
         <div className="footer">
-          <SocialMedia/>
           <Footer/>
         </div>
         

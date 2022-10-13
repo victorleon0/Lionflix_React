@@ -4,11 +4,15 @@
     height: 30px;
     border-top: 1px solid #303030;
     box-shadow: inset;
+    text-align: center;
     
     .copyright {
         text-align: center;
         font-size: 12px;
         margin-top:10px;
         
+    }
+    a {
+        color: whitesmoke;
     }
 }

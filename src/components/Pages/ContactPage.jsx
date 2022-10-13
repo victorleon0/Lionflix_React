@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import ContactForm from "./../Contact/ContactForm"
+import ContactForm from "./../Contact/ContactForm";
+import Footer from "../Footer/Footer";
 
 const ContactPage = () => {
   return (
@@ -11,6 +12,9 @@ const ContactPage = () => {
       <div className="details">
       <ContactForm/>
       </div>
+      <div className="footer">
+          <Footer/>
+        </div>
     </div>
   );
 };

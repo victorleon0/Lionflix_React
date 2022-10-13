@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import tmdbApi from "../../api/tmdb.api";
 
 import MovieCard from "../Movies/MovieCard";
+import Footer from "../Footer/Footer";
 import "./../Movies/MoviesList.scss";
 import "./UpcomingMoviesPage.scss";
 
@@ -36,6 +37,9 @@ const UpcomingMoviesPage = () => {
             src="./assets/BG_movies.jpeg"
             alt="backgroundApp"
           ></img>
+        </div>
+        <div className="footer">
+          <Footer/>
         </div>
         
       </div>
