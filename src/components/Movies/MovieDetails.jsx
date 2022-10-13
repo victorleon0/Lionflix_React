@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-
 import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./MovieDetails.scss";
 import { Link } from "react-router-dom";
 import SimilarMovies from "../MoreMovies/SimilarMovies";
 
-const MovieDetails = ({ poster_path }) => {
+const MovieDetails = ({ poster_path, backdrop_path }) => {
   const [movie, setMovie] = useState();
   const { id } = useParams();
 
@@ -20,10 +19,12 @@ const MovieDetails = ({ poster_path }) => {
   };
 
   const getImagePath = (poster_path) => {
-    return `https://www.themoviedb.org/t/p/w440_and_h660_face${poster_path}`;
+    return `https://www.themoviedb.org/t/p/original${poster_path}`;
   };
 
-  
+  const getBackdropPath = (backdrop_path) => {
+    return `https://www.themoviedb.org/t/p/original${backdrop_path}`;
+  };
 
   useEffect(() => {
     getMovie();
@@ -53,22 +54,21 @@ const MovieDetails = ({ poster_path }) => {
                       <span id="date"> {movie.release_date}</span>
                     </h1>
                     <div className="divicons">
-                          <Link to="/favorites">
-                            <img
-                              src="https://images.emojiterra.com/google/android-oreo/512px/2764.png"
-                              className="heart"
-                              alt="favorites"
-                            ></img>
-                          </Link>
-                        </div>
+                      <Link to="/favorites">
+                        <img
+                          src="https://images.emojiterra.com/google/android-oreo/512px/2764.png"
+                          className="heart"
+                          alt="favorites"
+                        ></img>
+                      </Link>
+                    </div>
                     <div className="row">
                       <span className="badge">
                         <span id="status">{movie.status}</span>
                       </span>
                     </div>
                     <div className="row">
-                      {movie.runtime} minutes |{" "}
-                      {movie.release_date}
+                      {movie.runtime} minutes | {movie.release_date}
                     </div>
                     <h3 id="tagline">{movie.tagline}</h3>
                     <div id="overview">
@@ -85,7 +85,7 @@ const MovieDetails = ({ poster_path }) => {
                         <h2>Runtime</h2>
                         <div>
                           <div id="runtime">{movie.runtime} minutes</div>
-                        </div>                       
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -93,8 +93,17 @@ const MovieDetails = ({ poster_path }) => {
               </div>
             </div>
             <div className="similarMovies">
-                        <h1>Similar Movies</h1>
-                        <SimilarMovies/></div>
+              <h1>Similar Movies</h1>
+              <SimilarMovies />
+            </div>
+            
+              <img
+                className="backgroundImageOriginal"
+                src={getBackdropPath(movie.backdrop_path)}
+                alt={movie.title}
+                id="poster"
+              ></img>
+            
           </>
         )}
       </div>

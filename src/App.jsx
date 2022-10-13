@@ -5,6 +5,7 @@ import MoviesList from "./components/Movies/MoviesList";
 import Navbar from "./components/Navbar/Navbar";
 import SocialMedia from "./components/SocialMedia/SocialMedia";
 import Footer from "./components/Footer/Footer";
+import AddFavorites from "./components/Favorites/AddFavorites";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         </div>
         <div className="movieContainer">
           <h1 className="categorie">Trending Now</h1>
-          <MoviesList/>
+          <MoviesList FavouriteComponent={AddFavorites}/>
           <h1 className="categorie">Trending Now</h1>
           <MoviesList/>
           <h1 className="categorie">Trending Now</h1>

@@ -12,12 +12,13 @@ import reduxThunk from "redux-thunk";
 import reducers from "./reducers/favorites.reducers";
 
 import MovieDetails from "./components/Movies/MovieDetails";
-import SearchPage from "./components/Pages/SearchPage";
+import SearchPage2 from "./components/Pages/SearchPage2";
 import MoviesPage from "./components/Pages/MoviesPage";
 import TvShowsPage from "./components/Pages/TvShowsPage";
 import TvShowsDetails from "./components/Movies/TvShowsDetails";
 import UpcomingMoviesPage from "./components/Pages/UpcomingMoviesPage";
 import ContactPage from "./components/Pages/ContactPage";
+import FavoritesPage from "./components/Pages/FavoritesPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -31,11 +32,12 @@ root.render(
         <Route exact path="/" element={<App />} />
         <Route path="/movies/:id" element={<MovieDetails />} />
         <Route path="/tv/:id" element={<TvShowsDetails />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search" element={<SearchPage2 />} />
         <Route path="/films" element={<MoviesPage />} />
         <Route path="/tvshows" element={<TvShowsPage />} />
         <Route path="/upcoming" element={<UpcomingMoviesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </React.StrictMode>
   </Router>

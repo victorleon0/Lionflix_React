@@ -7,7 +7,6 @@ import tmdbApi from "../../api/tmdb.api";
 import MovieCard from "../Movies/MovieCard";
 import "./../Movies/MoviesList.scss";
 import "./TvShowsPage.scss";
-import MoviesList from "../Movies/MoviesList";
 
 const UpcomingMoviesPage = () => {
   const [movies, setMovies] = useState([]);
