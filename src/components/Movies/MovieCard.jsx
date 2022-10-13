@@ -1,6 +1,7 @@
 import "./MovieCard.scss";
 import { useNavigate } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
+import { MovieControls } from "./MovieControls";
 
 const getImagePath = (imagepath)=> {
     return `https://www.themoviedb.org/t/p/w440_and_h660_face${imagepath}`
@@ -9,7 +10,7 @@ const getImagePath = (imagepath)=> {
 
 
 
-const MovieCard = ({ poster_path, title, release_date, id }) => {
+const MovieCard = ({ poster_path, title, release_date, id, type, movie}) => {
 
   const navigate = useNavigate ();
 
@@ -24,6 +25,7 @@ const MovieCard = ({ poster_path, title, release_date, id }) => {
       <div className="textCard">
         <h3 className="title">{title}</h3>
         <p className="date">{release_date}</p>
+        <MovieControls type={type} movie={movie} />
       </div>
     </div>
   );

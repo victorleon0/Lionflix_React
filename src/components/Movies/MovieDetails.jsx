@@ -1,13 +1,16 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "../../context/GlobalState";
 
 import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./MovieDetails.scss";
-import { Link } from "react-router-dom";
 import SimilarMovies from "../MoreMovies/SimilarMovies";
 
-const MovieDetails = ({ poster_path, backdrop_path }) => {
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { BiTrash } from "react-icons/bi";
+
+const MovieDetails = ({ poster_path, backdrop_path, type }) => {
   const [movie, setMovie] = useState();
   const { id } = useParams();
 
@@ -29,6 +32,13 @@ const MovieDetails = ({ poster_path, backdrop_path }) => {
   useEffect(() => {
     getMovie();
   });
+
+  const {
+    removeMovieFromWatchlist,
+    addMovieToWatched,
+    moveToWatchlist,
+    removeFromWatched,
+  } = useContext(GlobalContext);
 
   return (
     <div className="movieDetails">
@@ -53,14 +63,43 @@ const MovieDetails = ({ poster_path, backdrop_path }) => {
                       {movie.title}
                       <span id="date"> {movie.release_date}</span>
                     </h1>
-                    <div className="divicons">
-                      <Link to="/favorites">
-                        <img
-                          src="https://images.emojiterra.com/google/android-oreo/512px/2764.png"
-                          className="heart"
-                          alt="favorites"
-                        ></img>
-                      </Link>
+                    <div className="watchlist">
+                    <div className="innerCardControls">
+                    <button
+            className="buttonadd"
+            onClick={() => {
+              addMovieToWatched(movie);
+            }}
+          >
+            <FaEye />
+          </button>
+          <button
+            className="buttonremove"
+            onClick={() => removeMovieFromWatchlist(movie.id)}
+          >
+            <BiTrash />
+          </button>
+      
+
+      {type === "watched" && (
+        <>
+          <button
+            className="buttonmove"
+            onClick={() => {
+              moveToWatchlist(movie);
+            }}
+          >
+            <FaEyeSlash />
+          </button>
+          <button
+            className="buttonremove"
+            onClick={() => removeFromWatched(movie.id)}
+          >
+            <BiTrash />
+          </button>
+        </>
+      )}
+    </div>
                     </div>
                     <div className="row">
                       <span className="badge">

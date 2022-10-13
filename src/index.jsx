@@ -4,12 +4,10 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import "./index.scss";
 import App from "./App";
 
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import reduxThunk from "redux-thunk";
 
 
-import reducers from "./reducers/favorites.reducers";
+
+import {GlobalProvider} from "./context/GlobalState";
 
 import MovieDetails from "./components/Movies/MovieDetails";
 import SearchPage from "./components/Pages/SearchPage";
@@ -18,14 +16,13 @@ import TvShowsPage from "./components/Pages/TvShowsPage";
 import TvShowsDetails from "./components/Movies/TvShowsDetails";
 import UpcomingMoviesPage from "./components/Pages/UpcomingMoviesPage";
 import ContactPage from "./components/Pages/ContactPage";
-import FavoritesPage from "./components/Pages/FavoritesPage";
+import { Watchlist } from "./components/Pages/WatchListPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const store = createStore(reducers, applyMiddleware(reduxThunk));
 
 root.render(
-  <Provider store={store}>
+  <GlobalProvider>
   <Router>
     <React.StrictMode>
       <Routes>
@@ -37,9 +34,9 @@ root.render(
         <Route path="/tvshows" element={<TvShowsPage />} />
         <Route path="/upcoming" element={<UpcomingMoviesPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/favorites" element={<Watchlist />} />
       </Routes>
     </React.StrictMode>
   </Router>
-  </Provider>,
+  </GlobalProvider>,
 );
