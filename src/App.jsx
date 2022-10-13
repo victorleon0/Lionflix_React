@@ -31,11 +31,17 @@ function App() {
           <h1 className="categorie">Trending Now</h1>
           <MoviesList/>
         </div>
-        
+        <div className="backgroundApp">
+        <img
+                className="backgroundImageApp"
+                src="./assets/BG_movies.jpeg"
+                alt="backgroundApp"
+              ></img></div>
         <div className="footer">
           <SocialMedia/>
           <Footer/>
         </div>
+        
       </div>
     </div>
   );

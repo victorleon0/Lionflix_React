@@ -6,7 +6,7 @@ import tmdbApi from "../../api/tmdb.api";
 
 import MovieCard from "../Movies/MovieCard";
 import "./../Movies/MoviesList.scss";
-import "./TvShowsPage.scss";
+import "./UpcomingMoviesPage.scss";
 
 const UpcomingMoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -30,7 +30,13 @@ const UpcomingMoviesPage = () => {
             return <MovieCard key={index} {...movie} />;
           })}
         </div>
-        
+        <div className="backgroundApp">
+          <img
+            className="backgroundImageApp"
+            src="./assets/BG_movies.jpeg"
+            alt="backgroundApp"
+          ></img>
+        </div>
         
       </div>
     </div>
